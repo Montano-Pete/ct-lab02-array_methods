@@ -1,4 +1,4 @@
-import { map } from './functions';
+import { filter, map } from './functions';
 
 // test for map function
 describe('map', () => {
@@ -11,5 +11,17 @@ describe('map', () => {
 
     expect(result).toEqual([2, 4, 6, 8, 10]);
     expect(originalArray).toEqual([1, 2, 3, 4, 5]);
+  });
+});
+
+// test for filter function
+describe('filter', () => {
+  it('takes an array and callback creating a new array with callbacks returned true/truthy', () => {
+    const originalArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const callback = (item) => item > 5;
+    const result = filter(originalArray, callback);
+
+    expect(result).toEqual([6, 7, 8, 9, 10]);
+    expect(originalArray).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   });
 });

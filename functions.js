@@ -16,11 +16,23 @@ export const filter = (arr, callback) => {
 
   for (let index = 0; index < arr.length; index++) {
     if (arr[index]) {
-      if(callback(arr[index])) {
+      if (callback(arr[index])) {
         newArr = [...newArr, arr[index]];
       }
     }
   }
 
   return newArr;
+};
+
+//function for findIndex
+export const findIndex = (arr, callback) => {
+  let i = '';
+
+  for (let index = 0; index < arr.length; index++) {
+    if(callback(arr[index]) === 0) {
+      return i = index;
+    }
+  }
+  return i;
 };

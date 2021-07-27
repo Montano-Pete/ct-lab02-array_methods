@@ -1,4 +1,4 @@
-import { filter, map } from './functions';
+import { filter, findIndex, map } from './functions';
 
 // test for map function
 describe('map', () => {
@@ -23,5 +23,16 @@ describe('filter', () => {
 
     expect(result).toEqual([6, 7, 8, 9, 10]);
     expect(originalArray).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  });
+});
+
+describe('findIndex', () => {
+  it('takes an array and callback returning the index of the first item', () => {
+    const originalArray = [1, 2, 3, 4, 5];
+    const callback = (item) => item % 4;
+    const result = findIndex(originalArray, callback);
+
+    expect(result).toEqual(3);
+    expect(originalArray).toEqual([1, 2, 3, 4, 5]);
   });
 });

@@ -25,7 +25,7 @@ export const filter = (arr, callback) => {
   return newArr;
 };
 
-//function for findIndex
+// function for findIndex
 export const findIndex = (arr, callback) => {
   let i = '';
 
@@ -35,4 +35,16 @@ export const findIndex = (arr, callback) => {
     }
   }
   return i;
+};
+
+// function for reduce
+export const reduce = (arr, callback, initialValue) => {
+  if(!initialValue) {
+    let accumulator = arr[0];
+    for (let index = 1; index < arr.length; index++) {
+      const item = arr[index];
+      accumulator = callback(accumulator, item);
+    }
+    return accumulator;
+  }
 };

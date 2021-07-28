@@ -1,4 +1,4 @@
-import { filter, findIndex, map } from './functions';
+import { filter, findIndex, map, reduce } from './functions';
 
 // test for map function
 describe('map', () => {
@@ -26,6 +26,7 @@ describe('filter', () => {
   });
 });
 
+// test for findIndex function
 describe('findIndex', () => {
   it('takes an array and callback returning the index of the first item', () => {
     const originalArray = [1, 2, 3, 4, 5];
@@ -33,6 +34,19 @@ describe('findIndex', () => {
     const result = findIndex(originalArray, callback);
 
     expect(result).toEqual(3);
+    expect(originalArray).toEqual([1, 2, 3, 4, 5]);
+  });
+});
+
+//test for reduce function
+describe('reduce', () => {
+  it('takes an array and callback returning the accumulator value', () => {
+    const originalArray = [1, 2, 3, 4, 5];
+    const callback = (accumulator, item) => accumulator + item;
+
+    const result = reduce(originalArray, callback);
+
+    expect(result).toEqual(15);
     expect(originalArray).toEqual([1, 2, 3, 4, 5]);
   });
 });

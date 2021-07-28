@@ -16,11 +16,45 @@ export const filter = (arr, callback) => {
 
   for (let index = 0; index < arr.length; index++) {
     if (arr[index]) {
-      if(callback(arr[index])) {
+      if (callback(arr[index])) {
         newArr = [...newArr, arr[index]];
       }
     }
   }
 
   return newArr;
+};
+
+// function for findIndex
+export const findIndex = (arr, callback) => {
+  let i = '';
+
+  for (let index = 0; index < arr.length; index++) {
+    if(callback(arr[index]) === 0) {
+      return i = index;
+    }
+  }
+  return i;
+};
+
+// function for reduce
+export const reduce = (arr, callback, initialValue) => {
+  if(!initialValue) {
+    let accumulator = arr[0];
+    for (let index = 1; index < arr.length; index++) {
+      const item = arr[index];
+      accumulator = callback(accumulator, item);
+    }
+    return accumulator;
+  }
+};
+
+// function for every
+export const every = (arr, callback) => {
+  for(const item of arr) {
+    const itemTwo = callback(item);
+    if(itemTwo) {
+      return true;
+    }
+  }
 };

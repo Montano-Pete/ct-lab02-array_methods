@@ -48,3 +48,13 @@ export const reduce = (arr, callback, initialValue) => {
     return accumulator;
   }
 };
+
+// function for every
+export const every = (arr, callback) => {
+  for(const item of arr) {
+    const itemTwo = callback(item);
+    if(itemTwo) {
+      return true;
+    }
+  }
+};

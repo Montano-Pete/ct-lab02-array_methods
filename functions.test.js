@@ -1,4 +1,4 @@
-import { filter, findIndex, map, reduce } from './functions';
+import { every, filter, findIndex, map, reduce } from './functions';
 
 // test for map function
 describe('map', () => {
@@ -48,5 +48,22 @@ describe('reduce', () => {
 
     expect(result).toEqual(15);
     expect(originalArray).toEqual([1, 2, 3, 4, 5]);
+  });
+});
+
+// test for every fuction
+describe('every', () => {
+  it('takes an array and callback returning an overall true value if all callback is is true/truthy', () => {
+    const originalArray = ['Peter', 'Kubisiak', 'Ben', 'Dan', 'Devon', 'Eion'];
+    const callback = (item) => {
+      if(item.includes('e')) {
+        return true;
+      }
+    };
+
+    const result = every(originalArray, callback);
+
+    expect(result).toEqual(true);
+    expect(originalArray).toEqual(['Peter', 'Kubisiak', 'Ben', 'Dan', 'Devon', 'Eion']);
   });
 });
